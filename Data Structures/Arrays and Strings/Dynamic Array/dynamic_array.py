@@ -81,6 +81,8 @@ class Array:
             
     '''
     
+    #Should I understand the capacity method well, will implement it
+    
 
 def main():
     #Will contain code to test the array data structure implementattion
