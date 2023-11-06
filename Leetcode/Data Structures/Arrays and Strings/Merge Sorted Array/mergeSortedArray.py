@@ -41,13 +41,11 @@
     Follow up: Can you come up with an algorithm that runs in O(m + n) time?
 
     Algorithm
-    variables to keep track of the len of num1 and num2 already given
-    Use two pointers to iterate over both arrays
-    Check the values at each index, append the greater one to the new array and move that pointer one up
-    If the index in the second array gets to the last index, append all the numbers left in num1 array 
-    Excluding the zeros
-    Insert the sorted array into a new array
-    After that transfer the elements in the sorted array to num1 array
+    New Approach, store the given array in a new array excluding the zeros
+    Do the comparison bit 
+    Store it in a new array 
+    Insert the elements in the sorted array to the array that was given
+    
 '''
 
 class Solution(object):
@@ -59,43 +57,40 @@ class Solution(object):
         :type n: int
         :rtype: None Do not return anything, modify nums1 in-place instead.
         """
+        #This trims the leading zeros of the num1 array
+        trimmedArray = nums1[:m]
+        sortedArray = []
         num1Counter = 0
         num2Counter = 0
-        sortedArray = []
-        
-        while num1Counter <= m and num2Counter <= n:
-            print(nums1)
-            #print(num2Counter)
-            if num2Counter == n - 1 or num1Counter == m - 1:
-                #Modify this block of code to accomplish the required task
-                if num2Counter == n-1:
-                    if nums2[num2Counter] < nums1[num1Counter]:
-                        sortedArray.append(nums2[num2Counter])
-                        sortedArray.append(nums1[num1Counter: ])
-                    else:
-                        sortedArray.append(nums1[num1Counter])
-                        sortedArray.append(nums2[num2Counter: ])
+        #Loop through the elements in the nums1 and nums2 array and do the comparisons
+        if len(trimmedArray) == 0:
+            for index in range(len(sortedArray)):
+                nums1[index] = sortedArray[index]
+        else:
+            while num1Counter <= len(trimmedArray)-1 and num2Counter <= len(nums2)-1:
+                if nums2[num2Counter] < trimmedArray[num1Counter]:
+                    sortedArray.append(nums2[num2Counter])
+                    num2Counter += 1
+                    if num2Counter == len(nums2):
+                        sortedArray.extend(trimmedArray[num1Counter: ])
                 else: 
-                    if nums2[num2Counter] < nums1[num1Counter]:
-                        sortedArray.append(nums2[num2Counter])
-                        sortedArray.append(nums1[num1Counter: ])
-                    else:
-                        sortedArray.append(nums1[num1Counter])
-                        sortedArray.append(nums2[num2Counter: ])                   
-                print(num2Counter)
-                break
-            elif nums2[num2Counter] < nums1[num1Counter]:
-                sortedArray.append(nums2[num2Counter])
-                num2Counter += 1
-            else:
-                sortedArray.append(nums1[num1Counter])
-                num1Counter += 1
-        print(sortedArray)
+                    sortedArray.append(trimmedArray[num1Counter])
+                    num1Counter += 1
+                    if num1Counter == len(trimmedArray):
+                        sortedArray.extend(nums2[num2Counter: ])
+            print(sortedArray)
+            for index in range(len(sortedArray)):
+                nums1[index] = sortedArray[index]
+        #Do not return
+        #return nums1
             
     
 def main():
     solution = Solution()
-    print(solution.merge([1,2,3,0,0,0], 6, [2,5,6], 3))
+    print(solution.merge([2,0], 1, [1], 1))
+    #nums1 = [1,2,3,0,0,0], m = 3, nums2 = [2,5,6], n = 3
+     #nums1 = [1], m = 1, nums2 = [], n = 0
+     #nums1 = [0], m = 0, nums2 = [1], n = 1
     
 if __name__ == '__main__':
     main()
