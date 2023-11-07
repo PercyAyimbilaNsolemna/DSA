@@ -58,25 +58,25 @@ class Solution(object):
         :rtype: None Do not return anything, modify nums1 in-place instead.
         """
         #This trims the leading zeros of the num1 array
-        trimmedArray = nums1[:m]
+        #trimmedArray = nums1[:m]
         sortedArray = []
         num1Counter = 0
         num2Counter = 0
         #Loop through the elements in the nums1 and nums2 array and do the comparisons
-        if len(trimmedArray) == 0:
-            for index in range(len(sortedArray)):
-                nums1[index] = sortedArray[index]
+        if m == 0:
+            for index in range(n):
+                nums1[index] = nums2[index]
         else:
-            while num1Counter <= len(trimmedArray)-1 and num2Counter <= len(nums2)-1:
-                if nums2[num2Counter] < trimmedArray[num1Counter]:
+            while num1Counter <= m-1 and num2Counter <= n-1:
+                if nums2[num2Counter] < nums1[num1Counter]:
                     sortedArray.append(nums2[num2Counter])
                     num2Counter += 1
-                    if num2Counter == len(nums2):
-                        sortedArray.extend(trimmedArray[num1Counter: ])
+                    if num2Counter == n:
+                        sortedArray.extend(nums1[num1Counter:m ])
                 else: 
-                    sortedArray.append(trimmedArray[num1Counter])
+                    sortedArray.append(nums1[num1Counter])
                     num1Counter += 1
-                    if num1Counter == len(trimmedArray):
+                    if num1Counter == m:
                         sortedArray.extend(nums2[num2Counter: ])
             print(sortedArray)
             for index in range(len(sortedArray)):
@@ -87,7 +87,7 @@ class Solution(object):
     
 def main():
     solution = Solution()
-    print(solution.merge([2,0], 1, [1], 1))
+    print(solution.merge([0], 0, [1], 1))
     #nums1 = [1,2,3,0,0,0], m = 3, nums2 = [2,5,6], n = 3
      #nums1 = [1], m = 1, nums2 = [], n = 0
      #nums1 = [0], m = 0, nums2 = [1], n = 1
