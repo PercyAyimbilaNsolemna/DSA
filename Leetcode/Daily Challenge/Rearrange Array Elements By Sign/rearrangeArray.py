@@ -41,11 +41,35 @@ class Solution(object):
         :type nums: List[int]
         :rtype: List[int]
         """
-        ...
+        numsLength = len(nums)
+
+        currentPosition = 0
+
+        positiveLocation = 0
+        negativeLocation = 0
+
+        results = []
+
+        while (currentPosition < numsLength/2):
+            while (nums[positiveLocation] < 0 and positiveLocation < numsLength):
+                positiveLocation += 1
+            
+            results.append(nums[positiveLocation])
+            positiveLocation += 1
+
+            while (nums[negativeLocation] > 0  and negativeLocation < numsLength):
+                negativeLocation += 1
+            results.append(nums[negativeLocation])
+            negativeLocation += 1
+
+            currentPosition += 1
+
+        return results
+            
 
 def main():
     solution = Solution()
-    print(solution.rearrangeArray([3,1,-2,-5,2,-4]))
+    print(solution.rearrangeArray([-1,1]))
 
 
 if __name__ == '__main__':
