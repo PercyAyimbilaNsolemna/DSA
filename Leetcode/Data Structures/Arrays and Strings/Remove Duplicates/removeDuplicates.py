@@ -19,8 +19,8 @@ class Solution():
             if nums[i] != nums[i - 1]:
                 nums[writeReader] = nums[i]
                 writeReader += 1
-            print(nums)
-        print(writeReader)
+            #print(nums)
+        #print(writeReader)
         return nums 
 
 
