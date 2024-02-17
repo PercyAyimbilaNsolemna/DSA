@@ -30,25 +30,20 @@ class Solution(object):
         :type k: int
         :rtype: int
         """
-        counter = Counter(arr)
-        freq = list(counter.values())
-        freq.sort()
 
-        unique_count = len(freq)
+        cnt = Counter(arr)
+        for i, v in enumerate(sorted(cnt.values())):
+            k -= v
+            if k < 0:
+                return len(cnt) - i
+        
+        return 0    
 
-        for f in freq:
-            if k >= f:
-                k -= f
-                unique_count -= 1
-            else:
-                break
-
-        return unique_count
 
 def main():
     solution = Solution()
 
     print(solution.findLeastNumOfUniqueInts([5,5,4], 1))
 
-if __name__ == '__main':
+if __name__ == '__main__':
     main()
