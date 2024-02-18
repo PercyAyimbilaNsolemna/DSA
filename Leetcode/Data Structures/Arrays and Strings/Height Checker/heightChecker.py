@@ -26,6 +26,7 @@
     heights:  [5,1,2,3,4]
     expected: [1,2,3,4,5]
     All indices do not match.
+
     Example 3:
 
     Input: heights = [1,2,3,4,5]
@@ -49,12 +50,20 @@ class Solution(object):
         :type heights: List[int]
         :rtype: int
         """
-        #sortedHeights 
+        sortedHeights = sorted(heights)
+
+        unexpectedHeight = 0
+
+        for index in range(len(sortedHeights)):
+            if sortedHeights[index] != heights[index]:
+                unexpectedHeight += 1
+
+        return unexpectedHeight
 
 def main():
     solution = Solution()
 
-    print(solution.heightChecker([1,1,4,2,1,3]))
+    print(solution.heightChecker([1,2,3,4,5]))
 
 
 if __name__ == '__main__':
