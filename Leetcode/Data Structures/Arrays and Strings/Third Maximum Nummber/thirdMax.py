@@ -1,5 +1,6 @@
 '''
-    Given an integer array nums, return the third distinct maximum number in this array. If the third maximum does not exist, return the maximum number.
+    Given an integer array nums, return the third distinct maximum number in this array. If the third maximum does
+    not exist, return the maximum number.
 
     Example 1:
 
@@ -43,11 +44,24 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
-        ...
+
+        distinctNumberCounter = 1
+
+        if len(nums) <= 3:
+            return nums[len(nums)-1]
+        
+        for index in range(1, len(nums)):
+            if nums[index] != nums[index-1]:
+                distinctNumberCounter += 1
+
+                if distinctNumberCounter == 3:
+                    return nums[index]
 
 
 def main():
-    ...
+    solution = Solution()
+
+    print(solution.thirdMax([1,1,2]))
 
 
 if __name__ == '__main__':
