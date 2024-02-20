@@ -45,23 +45,32 @@ class Solution(object):
         :rtype: int
         """
 
-        distinctNumberCounter = 1
+        setNums = list(set(nums))
 
-        if len(nums) <= 3:
-            return nums[len(nums)-1]
+        if len(setNums) <= 2:
+            return max(setNums)
         
-        for index in range(1, len(nums)):
-            if nums[index] != nums[index-1]:
-                distinctNumberCounter += 1
+        negativeNums = []
+        
+        for num in setNums:
+            if num < 0:
+                print(num)
+                negativeNums.append(num)
+                setNums.remove(num)
 
-                if distinctNumberCounter == 3:
-                    return nums[index]
+        setNums = negativeNums + setNums
+
+        print(negativeNums)
+
+        print(setNums)
+
+        return setNums[len(setNums)-3]
 
 
 def main():
     solution = Solution()
 
-    print(solution.thirdMax([1,1,2]))
+    print(solution.thirdMax([-1,2,3,-2]))
 
 
 if __name__ == '__main__':
