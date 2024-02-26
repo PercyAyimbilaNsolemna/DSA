@@ -45,33 +45,22 @@ class Solution(object):
         :rtype: int
         """
 
-        setNums = list(set(nums))
+        setNums = sorted(list(set(nums)))
+
 
         if len(setNums) <= 2:
             return max(setNums)
-        
-        negativeNums = []
-        
-        for num in setNums:
-            if num < 0:
-                print(num)
-                negativeNums.append(num)
-                setNums.remove(num)
-
-        setNums = negativeNums + setNums
-
-        print(negativeNums)
-
-        print(setNums)
 
         return setNums[len(setNums)-3]
+
 
 
 def main():
     solution = Solution()
 
-    print(solution.thirdMax([-1,2,3,-2]))
+    print(solution.thirdMax([2,2,3,1]))
 
+    #print(solution.thirdMax([-1,2,3,-3]))
 
 if __name__ == '__main__':
     main()
