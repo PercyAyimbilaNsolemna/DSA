@@ -121,6 +121,69 @@ class LinkedList:
         newNode.ref = n.ref
         #Sets the ref of the node to the new node
         n.ref = newNode
+
+    #Method that removes a node from the linked list
+    def remove(self, node):
+        #Checks if the head is none and outputs the a message if the head is None
+        if self.head is None:
+            print('The linked list is empty!')
+            return 
+        
+        #Checks if the data to remove is the head in the linked list
+        if self.head.data == node:
+            #If there is/are node(s) after the head node, the head becomes the node after the head node
+            if self.head.ref is not None:
+                self.head = self.head.ref
+                return 
+            #If there is/are no node(s) after the head node, the head node is set to None
+            else:
+                self.head = None
+                return
+
+        #Gets the head of the nodes in the linked list   
+        n = self.head
+
+        #Loops through the linked list and check if the data is equal to the requested data to remove
+        while n is not None:
+            #If the nest node of the current node is None that means we've gotten to the end of the linked list
+            if n.ref is None:
+                print(f'The node {node} is not in the Linked List')
+                return 
+            #Checks if the data of the next node of the current node is equal to the requested node to delete
+            if n.ref.data == node:
+                break
+            #Sets the n value to the next node in the linked list
+            n = n.ref
+        
+        #Sets the ref of the current node to the ref of the next node, this jumps the node to delete 
+        n.ref = n.ref.ref
+
+    #Method to remove a node after a specified node
+    def removeAfter(self, node):
+        #Gets the head of the linked list
+        n = self.head
+
+        #Loops through the nodes in the linked list in search of the requested node
+        while n is not None:
+            #Checks if the data at the node is the specified node
+            if n.data == node:
+                break
+            
+            #Sets the n value to the next node
+            n = n.ref
+
+        #Outputs a tyext when the requested node is not found in the linked list
+        if n is None:
+            print(f'The node {node} is not in the Linked List')
+            return
+
+        #Sets the ref of the current node to the next node of the following node, this jumps the next node
+        n.ref = n.ref.ref
+
+
+    #Method to delete a node before the speified node
+    def removeBefore(self, node):
+        ...   
         
 
 def main():
@@ -131,6 +194,9 @@ def main():
     linkedList.addItemAtEnd('Primary')
     linkedList.addItemAtEnd('High school')
     linkedList.addItemAtBegining('University')
+    linkedList.addItemAtEnd('Primary')
+    linkedList.addItemAtEnd('High school')
+    linkedList.addItemAtEnd('University')
     '''
     linkedList.addItemAtBegining('Kindergarten')
     linkedList.addItemAtEnd('Primary')
@@ -140,7 +206,8 @@ def main():
     print()
     print('-------------------------------------------------')
     print()
-    linkedList.insertBefore('High school', 'JHS')
+    linkedList.removeAfter('Primar')
+    #linkedList.insertBefore('High school', 'JHS')
   
 
     '''
