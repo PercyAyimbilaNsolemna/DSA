@@ -183,31 +183,105 @@ class LinkedList:
 
     #Method to delete a node before the speified node
     def removeBefore(self, node):
+        #Checks if the specified node is the head node
         if self.head.data == node:
             print(f'{node} is the head node')
             return 
         
+        #Checks if the node to remove is the head node
         if self.head.ref.data == node:
             self.head = self.head.ref
             return
         
+        #Sets n to the head node
         n = self.head
 
+        #Loops through the nodes to find the specified node
         while n is not None:
             #If the nest node of the current node is None that means we've gotten to the end of the linked list
             if n.ref.ref is None:
                 print(f'The node {node} is not in the Linked List')
                 return 
             
+            #Checks the data in the next two nodes if is equal to the specified node
             if n.ref.ref.data == node:
+                break
+            
+            #Updates the node to the next node
+            n = n.ref
+
+        #Changes the ref of the current node to the next two nodes
+        n.ref = n.ref.ref
+
+
+    #Method to print a specified node
+    def printNode(self, node):
+        #Sets n to the head node
+        n = self.head
+
+        #Loops through the nodes in the linked l;ist
+        while n is not None:
+            #Checks if the data at the node is equal to the specified node
+            if n.data == node:
+                print(node)
+                return 
+            
+            n = n.ref
+
+        #Outputs a message if the node is NOT found in the linked list
+        print(f'{node} node is NOT in the Linked List')
+        
+
+    #Method to print node after a specified node
+    def printNodeAfter(self, node):
+        #Sets n to the head of the Linked List
+        n = self.head
+
+        #Loops through the linked List 
+        while n is not None:
+            if n.data == node:
                 break
 
             n = n.ref
 
-        n.ref = n.ref.ref
+        #Checks if n is None
+        if n is None:
+            print(f'{node} node is NOT in the Linked List')
+            return
 
+        #Checks if the ref to the next node is None
+        if n.ref is None:
+            print(f'{node} node is the last node in the Linked List')
+            return 
         
+        #Prints the data in the next node
+        print(n.ref.data)
+
+    #Method to print node before a specified node
+    def printNodeBefore(self, node):
+        #Checks if the specified node is the head node
+        if self.head.data == node:
+            print(f'{node} is the head node, there is NO node before it')
+            return
         
+        #Sets n to the head node
+        n = self.head
+
+        #Loops through the Linked List
+        while n is not None:
+            #Checks if the ref of the next node is None
+            if n.ref is None:
+                print(f'{node} node is NOT in the Linked List')
+                return
+            #Checks if the data in the next node is equal to the specified node
+            if n.ref.data == node:
+                break
+            
+            #Sets n to the next node
+            n = n.ref
+      
+        print(n.data)
+
 
 def main():
     
@@ -230,6 +304,7 @@ def main():
     print('-------------------------------------------------')
     print()
     linkedList.removeBefore('Kindergarten')
+    linkedList.printNodeBefore('High school')
     #linkedList.insertBefore('High school', 'JHS')
   
 
