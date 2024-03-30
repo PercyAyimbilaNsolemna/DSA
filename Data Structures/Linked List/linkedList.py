@@ -183,7 +183,30 @@ class LinkedList:
 
     #Method to delete a node before the speified node
     def removeBefore(self, node):
-        ...   
+        if self.head.data == node:
+            print(f'{node} is the head node')
+            return 
+        
+        if self.head.ref.data == node:
+            self.head = self.head.ref
+            return
+        
+        n = self.head
+
+        while n is not None:
+            #If the nest node of the current node is None that means we've gotten to the end of the linked list
+            if n.ref.ref is None:
+                print(f'The node {node} is not in the Linked List')
+                return 
+            
+            if n.ref.ref.data == node:
+                break
+
+            n = n.ref
+
+        n.ref = n.ref.ref
+
+        
         
 
 def main():
@@ -206,7 +229,7 @@ def main():
     print()
     print('-------------------------------------------------')
     print()
-    linkedList.removeAfter('Primar')
+    linkedList.removeBefore('Kindergarten')
     #linkedList.insertBefore('High school', 'JHS')
   
 
