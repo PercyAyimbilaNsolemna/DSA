@@ -286,7 +286,6 @@ class LinkedList:
 def main():
     
     linkedList = LinkedList()
-    '''
     linkedList.addItemAtEnd('Kingdergarten')
     linkedList.addItemAtEnd('Primary')
     linkedList.addItemAtEnd('High school')
@@ -294,7 +293,6 @@ def main():
     linkedList.addItemAtEnd('Primary')
     linkedList.addItemAtEnd('High school')
     linkedList.addItemAtEnd('University')
-    '''
     linkedList.addItemAtBegining('Kindergarten')
     linkedList.addItemAtEnd('Primary')
     linkedList.addItemAtEnd('High school')
@@ -305,7 +303,7 @@ def main():
     print()
     linkedList.removeBefore('Kindergarten')
     linkedList.printNodeBefore('High school')
-    #linkedList.insertBefore('High school', 'JHS')
+    linkedList.insertBefore('High school', 'JHS')
   
 
     '''
