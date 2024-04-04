@@ -282,6 +282,10 @@ class LinkedList:
       
         print(n.data)
 
+    #Method that reverses a linked list
+    def reverse(self, linkedList):
+        ...
+
 
 def main():
     
