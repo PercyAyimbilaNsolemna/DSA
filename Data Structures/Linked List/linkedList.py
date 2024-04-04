@@ -15,17 +15,11 @@ class Node:
         self.data = data
         self.ref = ref
 
-    def __str__(self):
-        return 'Class for Node'
-
 #Class that links the nodes crrated
 class LinkedList:
     def __init__(self):
         #Sets the head to None during instantiation
         self.head = None
-
-    def __str__(self):
-        return 'Class for Linked List'
     
     #Loops through all the nodes in the linked list
     def traverse(self):
@@ -283,8 +277,46 @@ class LinkedList:
         print(n.data)
 
     #Method that reverses a linked list
-    def reverse(self, linkedList):
-        ...
+    def reverse(self, linkedList=None):
+        '''
+        2 ---> 3 ---> 4 --> 5
+        prev: point to the node before current
+        current: Point to the current node
+        next: Pointing to the next node to the current
+        '''
+        #Sets the pointer of the previous node to the current node to None
+        prev = None
+
+        #Sets the pointer of the next node to the current node to None
+        next = None
+
+        #Sets the current node to the head node
+        current = self.head
+
+        #Checks if the head node is None
+        if current is None:
+            print('The linked list is empty')
+            return 
+
+        #Loops through the linked list
+        while current is not None:
+            #Sets the next node to the current node 
+            next = current.ref
+            
+            #Sets the ref of the current node to the prev node
+            current.ref = prev
+
+            #Updates the prev node to the current node
+            prev = current 
+
+            #Updates the current node to the next node
+            current = next
+
+        #print(f'The data at the node is {prev.data}')
+        #Sets the head node to the prev node, that is the last node with next node been None
+        #The ref has already been set to the prev node hence no need to update the ref again
+        self.head = prev
+        return 
 
 
 def main():
@@ -321,6 +353,12 @@ def main():
     linkedList.addItemAtBegining('University')
 
     '''
+    linkedList.traverse()
+    
+    linkedList.reverse()
+    print()
+    print('------------------------------------------------- Reverse')
+    print()
     linkedList.traverse()
     
 
