@@ -8,14 +8,14 @@
     Detailed explanation
 
 '''
-#Class that reates the Nodes
+#Class that creates the Nodes
 class Node:
     def __init__(self, data, ref=None):
         #Sets the data to the parameter passed
         self.data = data
         self.ref = ref
 
-#Class that links the nodes crrated
+#Class that links the nodes created
 class LinkedList:
     def __init__(self):
         #Sets the head to None during instantiation
@@ -35,7 +35,8 @@ class LinkedList:
                 print(n.data, '===>', end=' ')
                 #Sets the n to the ref of the next node
                 n = n.ref
-            print()
+        print()
+
     #Adds a node to the beginning of the linked list
     def addItemAtBegining(self, data):
         #Creates a new node from the node class
@@ -69,7 +70,7 @@ class LinkedList:
         while n is not None:
             #Checks if the data is the same as the node requested, if true saves the node and the next  node
             if n.data == node:
-                foundNode = n
+                #foundNode = n
                 break
             n = n.ref
         if n is None:
@@ -84,7 +85,7 @@ class LinkedList:
     #Method that inserts a node before a specified node
     def insertBefore(self, node, data):
         #Exits the code if the linked list is empty
-        if self.head  is None:
+        if self.head is None:
             print('The Linked List is Empty')
             return 
         
