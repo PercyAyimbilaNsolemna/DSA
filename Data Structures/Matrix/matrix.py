@@ -16,12 +16,15 @@
 '''
 
 class Matrix:
-    def __init__(matrix=None):
-        ...
+    def __init__(self, rows, columns):
+        self.rows = rows
+        self.columns = columns
+        self.matrix = [[0 for x in range(columns)] for y in range(rows)]
+        print(self.matrix)
 
 
 def main():
-    matrix = Matrix()
+    matrix = Matrix(4, 3)
 
 
 if __name__ == '__main__':
