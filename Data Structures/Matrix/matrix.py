@@ -152,8 +152,23 @@ class Matrix:
                 if min == max or min > max:
                     return self.matrix       
         except IndexError:
-            return f'The column index {columnIndex} is OUT RANGE' 
+            return f'The column index {columnIndex} is OUT RANGE'
+        
+    #Method that removes a specified item. The specifics of this method is not clear. Will work on it when resolved
+    def sort(self, item):
+        ...
 
+    #Method that returns the sum of cells along the matrix primary diagonal
+    def diagonalSum(self):
+        sum = 0
+
+        for row_index in range(0, len(self.matrix)):
+            for column_index in range(0, len(self.matrix[row_index])):
+                if row_index == column_index:
+                    sum += self.matrix[row_index][column_index]
+        
+        return f'The sum of the cells along the main diagonal is {sum}'
+ 
 def main():
     matrix = Matrix([[1, 2, 3], [3, 4, 5], [6, 7, 8]])
 
@@ -170,8 +185,9 @@ def main():
     #print(matrix.getIndex(2))
 
     #print(matrix1.reverseRow(0))
-    print(matrix1.reverseRow(5))
-    print(matrix1.reverseColumn(0))
+    #print(matrix1.reverseRow(5))
+    #print(matrix1.reverseColumn(0))
+    print(matrix1.diagonalSum())
 
 
 if __name__ == '__main__':
