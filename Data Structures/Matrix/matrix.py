@@ -133,6 +133,27 @@ class Matrix:
             #Checks if all the elements have been reversed and break out of the loop
             if min == max or min > max:
                 return self.matrix
+            
+    #Methos that reverses elements in a specified column
+    def reverseColumn(self, columnIndex):
+        #Stores the min value 
+        min = 0
+        #Stores the max value of the column
+        max = len(self.matrix) - 1
+
+        try:
+            for _ in range(0, len(self.matrix)):
+                #Reveres the elements in place
+                self.matrix[min][columnIndex], self.matrix[max][columnIndex] = self.matrix[max][columnIndex], self.matrix[min][columnIndex]
+                #Increment min
+                min += 1
+                #Decrements max
+                max -= 1
+                if min == max or min > max:
+                    return self.matrix       
+        except IndexError:
+            return f'The column index {columnIndex} is OUT RANGE' 
+
 def main():
     matrix = Matrix([[1, 2, 3], [3, 4, 5], [6, 7, 8]])
 
@@ -148,8 +169,9 @@ def main():
 
     #print(matrix.getIndex(2))
 
-    print(matrix1.reverseRow(0))
+    #print(matrix1.reverseRow(0))
     print(matrix1.reverseRow(5))
+    print(matrix1.reverseColumn(0))
 
 
 if __name__ == '__main__':
