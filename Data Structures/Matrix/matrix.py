@@ -101,9 +101,16 @@ class Matrix:
         for row_index in range(0, len(self.matrix)):
             for column_index in range(0, len(self.matrix[row_index])):
                 if self.matrix[row_index][column_index] == item:
-                    return True
-                
+                    return True            
         return False
+    
+    #Method that returns the index i and j of an element if it is in the linked list and None otherwise
+    def getIndex(self, item):
+        for row_index in range(0, len(self.matrix)):
+            for column_index in range(0, len(self.matrix[row_index])):
+                if self.matrix[row_index][column_index] == item:
+                    return f'The ith and jth indexes are {row_index}, {column_index}'       
+        return f'The item {item} was NOT found in the matrix'
 
 def main():
     matrix = Matrix([[1, 2, 3], [3, 4, 5], [6, 7, 8]])
@@ -116,7 +123,9 @@ def main():
 
     matrix.traverse()
 
-    print(matrix.search(3))
+    print(matrix.search(2))
+
+    print(matrix.getIndex(2))
 
 
 if __name__ == '__main__':
