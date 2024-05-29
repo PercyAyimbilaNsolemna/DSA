@@ -67,14 +67,37 @@ class Matrix:
 
     #Method that inserts an item at a given position
     def insert(self, item, i, j):
-        ...
+        #Use exceptions to check if the index specified is in the matrix
+        try:
+            item_to_change = self.matrix[i][j]
+        except IndexError:
+            print(f'The index {i}th row and {j}th column is not in the matrix: \n{self.matrix}')
+            return
+
+        #Converts the item to be inserted to the correct data type
+        data_type = type(item_to_change)
+
+        try:
+            casted_item = data_type(item)
+        except ValueError:
+            print(f'The item {item} cannot be type casted')
+            return 
+        
+        self.matrix[i][j] = casted_item
+
+        #Deletes the data_type and item_to_change variables to save memory
+        del item_to_change, data_type
+
+        print(f'The new matrix is: \n{self.matrix}')
 
 def main():
     matrix = Matrix([[1, 2, 3], [3, 4, 5], [6, 7, 8]])
 
-    matrix1 = Matrix('1 2 3;4 5 6')
+    matrix1 = Matrix('1 2 3; 4 5 6')
 
     matrix.zeros(2, 3)
+
+    matrix.insert(2, 1, 2)
 
 
 if __name__ == '__main__':
