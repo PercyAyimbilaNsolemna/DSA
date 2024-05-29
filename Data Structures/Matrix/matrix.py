@@ -96,6 +96,15 @@ class Matrix:
             for column_index in range(0, len(self.matrix[row_index])):
                 print(f'{self.matrix[row_index][column_index]}')
 
+    #Method that returns True if an element can be found in the matrix and False otherwise
+    def search(self, item):
+        for row_index in range(0, len(self.matrix)):
+            for column_index in range(0, len(self.matrix[row_index])):
+                if self.matrix[row_index][column_index] == item:
+                    return True
+                
+        return False
+
 def main():
     matrix = Matrix([[1, 2, 3], [3, 4, 5], [6, 7, 8]])
 
@@ -107,7 +116,7 @@ def main():
 
     matrix.traverse()
 
-    #matrix1.traverse()
+    print(matrix.search(3))
 
 
 if __name__ == '__main__':
