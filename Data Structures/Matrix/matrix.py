@@ -23,7 +23,8 @@ class Matrix:
     def __init__(self, dimensions=None):
         self.matrix = []
         if type(dimensions) == str:
-            splitted_text = dimensions.split(';')
+            #Removes any space after the semicolon before splitting the text into dimensions
+            splitted_text = dimensions.replace('; ', ';').split(';')
             #Checks if there is a decimal in any of the entries. Help type cast all the entries to float
             find_decimal = '.' in dimensions
             if len(splitted_text) == 1 and splitted_text[0] == '':
@@ -57,16 +58,21 @@ class Matrix:
             print(self.matrix)
             return
 
+    #Creates an zero matrix based on the number of rows and columns specified
     def zeros(self, rows, columns):
         self.rows = rows
         self.columns = columns
         self.matrix = [[0 for x in range(columns)] for y in range(rows)]
         print(self.matrix)
 
-
+    #Method that inserts an item at a given position
+    def insert(self, item, i, j):
+        ...
 
 def main():
     matrix = Matrix([[1, 2, 3], [3, 4, 5], [6, 7, 8]])
+
+    matrix1 = Matrix('1 2 3;4 5 6')
 
     matrix.zeros(2, 3)
 
