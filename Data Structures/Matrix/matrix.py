@@ -90,6 +90,12 @@ class Matrix:
 
         print(f'The new matrix is: \n{self.matrix}')
 
+    #Method that prints out every cell value of a matrix
+    def traverse(self):
+        for row_index in range(0, len(self.matrix)):
+            for column_index in range(0, len(self.matrix[row_index])):
+                print(f'{self.matrix[row_index][column_index]}')
+
 def main():
     matrix = Matrix([[1, 2, 3], [3, 4, 5], [6, 7, 8]])
 
@@ -98,6 +104,10 @@ def main():
     matrix.zeros(2, 3)
 
     matrix.insert(2, 1, 2)
+
+    matrix.traverse()
+
+    #matrix1.traverse()
 
 
 if __name__ == '__main__':
