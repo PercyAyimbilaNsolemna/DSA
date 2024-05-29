@@ -111,7 +111,28 @@ class Matrix:
                 if self.matrix[row_index][column_index] == item:
                     return f'The ith and jth indexes are {row_index}, {column_index}'       
         return f'The item {item} was NOT found in the matrix'
+    
+    #Method that reverses elements of a specific row
+    def reverseRow(self, rowIndex):
+        #Stores the min value of the elements in the row
+        min = 0
+        try:
+            #Stores the length of the row
+            max = len(self.matrix[rowIndex]) - 1
+        except IndexError:
+            return f'The row index {rowIndex} is OUT OF RANGE'
 
+        #Loops through the specified row
+        for _ in range(0, len(self.matrix[rowIndex])):
+            #Reverses the elements in place
+            self.matrix[rowIndex][min], self.matrix[rowIndex][max] = self.matrix[rowIndex][max], self.matrix[rowIndex][min]
+            #Increments the min value
+            min += 1
+            #Decrements the max value
+            max -= 1
+            #Checks if all the elements have been reversed and break out of the loop
+            if min == max or min > max:
+                return self.matrix
 def main():
     matrix = Matrix([[1, 2, 3], [3, 4, 5], [6, 7, 8]])
 
@@ -121,11 +142,14 @@ def main():
 
     matrix.insert(2, 1, 2)
 
-    matrix.traverse()
+    #matrix.traverse()
 
-    print(matrix.search(2))
+    #print(matrix.search(2))
 
-    print(matrix.getIndex(2))
+    #print(matrix.getIndex(2))
+
+    print(matrix1.reverseRow(0))
+    print(matrix1.reverseRow(5))
 
 
 if __name__ == '__main__':
