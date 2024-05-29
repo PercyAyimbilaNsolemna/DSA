@@ -168,6 +168,12 @@ class Matrix:
                     sum += self.matrix[row_index][column_index]
         
         return f'The sum of the cells along the main diagonal is {sum}'
+    
+    #Method that prints all the cells in the matrix
+    def display(self):
+        for row_index in range(0, len(self.matrix)):
+            for column_index in range(0, len(self.matrix[row_index])):
+                print(f'{self.matrix[row_index][column_index]}')
  
 def main():
     matrix = Matrix([[1, 2, 3], [3, 4, 5], [6, 7, 8]])
@@ -188,6 +194,8 @@ def main():
     #print(matrix1.reverseRow(5))
     #print(matrix1.reverseColumn(0))
     print(matrix1.diagonalSum())
+    
+    matrix1.display()
 
 
 if __name__ == '__main__':
