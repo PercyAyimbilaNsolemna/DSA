@@ -63,7 +63,7 @@ class Matrix:
         self.rows = rows
         self.columns = columns
         self.matrix = [[0 for x in range(columns)] for y in range(rows)]
-        print(self.matrix)
+        return self.matrix
 
     #Method that inserts an item at a given position
     def insert(self, item, i, j):
@@ -174,6 +174,19 @@ class Matrix:
         for row_index in range(0, len(self.matrix)):
             for column_index in range(0, len(self.matrix[row_index])):
                 print(f'{self.matrix[row_index][column_index]}')
+
+    ##Method that transposes the matrix
+    def transpose(self):
+        #Gets the inintial number of rows in the matrix
+        rowsInintial = len(self.matrix)
+        #Error checking for when the matrix is empty
+        if rowsInintial == 0:
+            return 'The matrix is empty'
+        
+        #Gets the initial number of columns in the matrix
+        columnsInitial = len(self.matrix[0])
+
+        #Calls the zeros method to create zeros matrix of the transposed matrix 
  
 def main():
     matrix = Matrix([[1, 2, 3], [3, 4, 5], [6, 7, 8]])
