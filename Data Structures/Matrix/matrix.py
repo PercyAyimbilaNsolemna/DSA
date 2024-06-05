@@ -186,8 +186,23 @@ class Matrix:
         #Gets the initial number of columns in the matrix
         columnsInitial = len(self.matrix[0])
 
+        #Saves the matrix to be transposed in a variable called original matrix
+        original_matrix = self.matrix
+
         #Calls the zeros method to create zeros matrix of the transposed matrix 
- 
+        transpoed_matrix = self.zeros(columnsInitial, rowsInintial)
+        
+        #Loops through the matrix to be transposed and inserts the elements in the zero created transposed matrix
+        for row_index in range(0, len(original_matrix)):
+            for column_index in range(0, len(original_matrix[row_index])):
+                #Swaps the rows with the columns 
+                transpoed_matrix[column_index][row_index] = original_matrix[row_index][column_index]
+        #Deletes the transposed_matrix, original matrix, rows initial and column initial variables created to free up memory
+        del transpoed_matrix, original_matrix, rowsInintial, columnsInitial
+
+        #Return the transposed matrix
+        return self.matrix
+    
 def main():
     matrix = Matrix([[1, 2, 3], [3, 4, 5], [6, 7, 8]])
 
@@ -196,6 +211,10 @@ def main():
     matrix.zeros(2, 3)
 
     matrix.insert(2, 1, 2)
+
+    matrix_new = Matrix()
+
+    print(matrix_new.transpose())
 
     #matrix.traverse()
 
@@ -206,9 +225,9 @@ def main():
     #print(matrix1.reverseRow(0))
     #print(matrix1.reverseRow(5))
     #print(matrix1.reverseColumn(0))
-    print(matrix1.diagonalSum())
+    #print(matrix1.diagonalSum())
     
-    matrix1.display()
+    #matrix1.display()
 
 
 if __name__ == '__main__':
