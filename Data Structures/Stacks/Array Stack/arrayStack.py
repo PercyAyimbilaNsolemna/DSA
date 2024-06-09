@@ -11,20 +11,27 @@
 
 class Stack:
     #Method called when instantiating a stack class
-    def __init__(self, stack=[], size=0):
-        self.stack = stack
-        #Creates a size property and set it to none when the Strack class is instantiated
-        self._size = size
+    def __init__(self):
+        self._stack = []
+        #Creates a size property and set it to none when the Stack class is instantiated
+        self._size = 0
+
+    #Defines a __str__ methos that returns the stack if the stack object is called by the print function
+    def __str__(self):
+        #Returns the stack
+        return str(self._stack)
 
     #Creates a method that adds an item to the stack
+    #Time complexity O(1) constant time
     def append(self, item):
         #Adds one to the size of the stack anytime an item is added so we can keep track of the size of the stack
         self._size += 1
         #Adds item to the end of the stack
-        self.stack.append(item)
-        return self.stack
+        self._stack.append(item)
+        return self._stack
     
     #Creates a method that removes the last element from the array stack
+    #Time complexity O(1) constant time 
     def pop(self):
         #Checks if the stack is empty
         if self._size == 0:
@@ -34,12 +41,13 @@ class Stack:
         self._size -= 1
 
         #Removes the last element from the stack
-        self.stack.pop()
+        self._stack.pop()
         
         #Retruns
         return
     
     #Creates a method that shows the last element in the statck without removing it
+    #Time complexity O(1) constant time
     def peek(self):
         #Checks if the stack is empty
         if self._size == 0:
@@ -48,11 +56,12 @@ class Stack:
             return 
         
         #Prints the last element in the stack
-        print(self.stack[self._size - 1])
+        print(self._stack[self._size - 1])
 
         return
     
     #Creates a method that checks if the stack is empty
+    #Time complexity O(1) constant time
     def isEmpty(self):
         #Checks if the stack is empty
         if self._size == 0:
@@ -64,6 +73,7 @@ class Stack:
         return 
 
     #Creates a method that returns the size of the array
+    #Time complexity O(1) constant time
     def size(self):
         #Outputs the size of the stack and returns 
         print(self._size)
@@ -85,7 +95,7 @@ def main():
 
     #Removes an element from the end of the stack (LIFO)
     stack.pop()
-    print(stack.stack)
+    print(stack)
 
     #Gets the last element in the stack
     stack.peek()
@@ -99,6 +109,7 @@ def main():
     #stack1.pop()
     stack1.isEmpty()
     stack1.size()
+    print(stack1)
 
 if __name__ == '__main__':
     main()
