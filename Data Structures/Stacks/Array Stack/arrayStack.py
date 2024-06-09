@@ -51,6 +51,17 @@ class Stack:
         print(self.stack[self.size - 1])
 
         return
+    
+    #Creates a method that checks if the stack is empty
+    def isEmpty(self):
+        #Checks if the stack is empty
+        if self.size == 0:
+            print(True)
+            return
+
+        #Outputs False if the stack is not empty and return
+        print(False)
+        return 
 
 def main():
     #Creates an object from the Stack class
@@ -73,10 +84,14 @@ def main():
     #Gets the last element in the stack
     stack.peek()
 
+    #Checks if the stack is empty
+    stack.isEmpty()
+
     stack1 = Stack()
     stack1.peek()
     #Shoots an error since the stack is empty
-    stack1.pop()
+    #stack1.pop()
+    stack1.isEmpty()
 
 if __name__ == '__main__':
     main()
