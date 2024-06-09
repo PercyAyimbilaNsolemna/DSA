@@ -23,6 +23,21 @@ class Stack:
         #Adds item to the end of the stack
         self.stack.append(item)
         return self.stack
+    
+    #Creates a method that removes the last element from the array stack
+    def pop(self):
+        #Checks if the stack is empty
+        if self.size == 0:
+            raise Exception('Stack is empty')
+        
+        #Decreases the size of the stack by 1
+        self.size -= 1
+
+        #Removes the last element from the stack
+        self.stack.pop()
+        
+        #Retruns
+        return
 
 def main():
     stack = Stack()
@@ -32,6 +47,8 @@ def main():
     print(stack.append(1))
     print(stack.append(3))
     print(stack.size)
+    stack.pop()
+    print(stack.stack)
 
 if __name__ == '__main__':
     main()
