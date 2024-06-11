@@ -21,16 +21,35 @@ class Stack:
     def __init__(self):
         #Sets the head of the linked list to None durimg instantiation
         self.head = None
+        #Sets the size of the stack to zero
+        self.size = 0
 
     #Creates a method that adds an item to the end of the stack
     #Time complexity O(1) Constant time
-    def append(self, item):
+    def push(self, item):
         #Creates a new node
         newNode = Node(item)
         #Sets the ref of the newly created head to the previous head, if the first node then the ref is set to none
         newNode.ref = self.head
         #Sets the newNode as the head of the linked list
         self.head = newNode
+        #Adds one to the size of the stack
+        self.size += 1
+        return
+
+    #Creates a method that remmoves an element from the end of a stack
+    #Time complexity O(1) Constant time
+    def pop(self):
+        #Checks if the stack is not empty
+        if self.size == 0:
+            print('The stack is EMPTY!')
+            return
+        #Sets the head of the stack to the ref of the current stack
+        self.head = self.head.ref
+
+        #Decrease the size of the stack by 1
+        self.size -= 1
+        return
 
     #Creates a method that outputs all the elements in the stack
     def traverse(self):
@@ -55,10 +74,21 @@ def main():
     stack = Stack()
 
     #Adds an item to the end of the stack
-    stack.append(3)
+    stack.push(3)
+    stack.push(8)
+    stack.push(10)
+    stack.push(15)
+    stack.push('Name')
 
-    #Traverses the satck
+    #Traverses the stack
     stack.traverse()
+
+    #Removes an element from the end of the stack
+    stack.pop()
+
+    stack.traverse()
+
+    print(stack.size)
 
 
 if __name__ == '__main__':
