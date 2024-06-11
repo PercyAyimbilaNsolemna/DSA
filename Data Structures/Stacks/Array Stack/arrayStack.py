@@ -23,7 +23,7 @@ class Stack:
 
     #Creates a method that adds an item to the stack
     #Time complexity O(1) constant time
-    def append(self, item):
+    def push(self, item):
         #Adds one to the size of the stack anytime an item is added so we can keep track of the size of the stack
         self._size += 1
         #Adds item to the end of the stack
@@ -102,11 +102,11 @@ def main():
     stack = Stack()
 
     #Appends elements to the end of the stack
-    print(stack.append(2))
-    print(stack.append(5))
-    print(stack.append(6))
-    print(stack.append(1))
-    print(stack.append(3))
+    print(stack.push(2))
+    print(stack.push(5))
+    print(stack.push(6))
+    print(stack.push(1))
+    print(stack.push(3))
 
     #Checks the size of the stack
     stack.size()
