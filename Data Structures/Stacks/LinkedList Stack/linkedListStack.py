@@ -32,12 +32,33 @@ class Stack:
         #Sets the newNode as the head of the linked list
         self.head = newNode
 
+    #Creates a method that outputs all the elements in the stack
+    def traverse(self):
+        #Checks if the head of the linked list is empty then it outputs the linked list is empty
+        if self.head is None:
+            print('Linked List is empty')
+            return
+        else:
+            #Pulls the head of the linked list
+            n = self.head
+            
+            #Enters the loop if the head is not none and the folloowing nodes are having a ref to a different node 
+            while n is not None:
+                print(n.data, '===>', end=' ')
+                #Sets the n to the ref of the next node
+                n = n.ref
+        print()
+        return
+
 
 def main():
     stack = Stack()
 
     #Adds an item to the end of the stack
     stack.append(3)
+
+    #Traverses the satck
+    stack.traverse()
 
 
 if __name__ == '__main__':
