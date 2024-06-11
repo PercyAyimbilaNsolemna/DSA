@@ -19,11 +19,25 @@ class Node:
 #Creates a class that creates the linked list stack
 class Stack:
     def __init__(self):
-        ...
+        #Sets the head of the linked list to None durimg instantiation
+        self.head = None
+
+    #Creates a method that adds an item to the end of the stack
+    #Time complexity O(1) Constant time
+    def append(self, item):
+        #Creates a new node
+        newNode = Node(item)
+        #Sets the ref of the newly created head to the previous head, if the first node then the ref is set to none
+        newNode.ref = self.head
+        #Sets the newNode as the head of the linked list
+        self.head = newNode
 
 
 def main():
-    ...
+    stack = Stack()
+
+    #Adds an item to the end of the stack
+    stack.append(3)
 
 
 if __name__ == '__main__':
