@@ -79,6 +79,24 @@ class Stack:
         print(self._size)
         return
 
+    #Creates a method that checks if an element is in  the stack
+    #Time complexity O(N) Linear time. That is why Stacks are not recommended for tasks that requires searching
+    def contains(self, element):
+        #Checks if the stack is empty and returns False
+        if self._size == 0:
+            print(False)
+            return
+        
+        #Loops through the elements in the stack and prints True if the element is found
+        for item in self._stack:
+            if item == element:
+                print(True)
+                return
+
+        #Prints False and returns if the for loop runs through all the items and does not find the element
+        print(False)    
+        return
+
 def main():
     #Creates an object from the Stack class
     stack = Stack()
@@ -103,6 +121,9 @@ def main():
     #Checks if the stack is empty
     stack.isEmpty()
 
+    #Checks if the stack contains an element
+    stack.contains(2)
+
     stack1 = Stack()
     stack1.peek()
     #Shoots an error since the stack is empty
@@ -110,6 +131,8 @@ def main():
     stack1.isEmpty()
     stack1.size()
     print(stack1)
+    stack1.contains(3)
+    
 
 if __name__ == '__main__':
     main()
