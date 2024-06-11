@@ -60,6 +60,18 @@ class Stack:
             return 
         print(self.head.data)
 
+    #Creates a method that checks if the stack is empty
+    #Time complexity O(1) Constant Time
+    def isEmpty(self):
+        #Checks if the size of the stack is 0
+        if self.size == 0:
+            print(True)
+            return
+        
+        #Outputs False if the stack has got elements
+        print(False)
+        return
+
     #Creates a method that outputs all the elements in the stack
     def traverse(self):
         #Checks if the head of the linked list is empty then it outputs the linked list is empty
@@ -100,9 +112,11 @@ def main():
     print(stack.size)
 
     stack.peek()
+    stack.isEmpty()
 
     stack1 = Stack()
     stack1.pop()
+    stack1.isEmpty()
 
 
 if __name__ == '__main__':
