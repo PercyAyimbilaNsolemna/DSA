@@ -50,6 +50,15 @@ class Stack:
         #Decrease the size of the stack by 1
         self.size -= 1
         return
+    
+    #Creates a method that outputs the top of the stack
+    #Time complexity O(1) Constant time
+    def peek(self):
+        #Checks if the stack is empty
+        if self.size == 0:
+            print('The stack is EMPTY!')
+            return 
+        print(self.head.data)
 
     #Creates a method that outputs all the elements in the stack
     def traverse(self):
@@ -89,6 +98,11 @@ def main():
     stack.traverse()
 
     print(stack.size)
+
+    stack.peek()
+
+    stack1 = Stack()
+    stack1.pop()
 
 
 if __name__ == '__main__':
