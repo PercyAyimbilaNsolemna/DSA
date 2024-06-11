@@ -77,6 +77,28 @@ class Stack:
     def size(self):
         print(self._size)
         return
+    
+    #Creates a method that checkd if the stack contains a specified item
+    #Time complexity O(N) Linear time. That is why stacks are not recommended for operations that requires searching
+    def contains(self, item):
+        #Checks if the stack is empty
+        if self._size == 0:
+            print('The stack is EMPTY!')
+            return
+        
+        #Retrieves the head of the stack
+        n = self._head
+
+        #Loops through the elements in the stack
+        while n is not None:
+            #Checks if the element at that node is the same as the item
+            if n._data == item:
+                print(True)
+                return
+            n = n._ref
+
+        print(False) 
+        return
 
     #Creates a method that outputs all the elements in the stack
     def traverse(self):
@@ -109,16 +131,18 @@ def main():
 
     #Traverses the stack
     stack.traverse()
-
     #Removes an element from the end of the stack
     stack.pop()
-
+    #Traverses the stack
     stack.traverse()
-
+    #Outputs the size of the stack
     stack.size()
-
+    #Outputs the last element in the stack
     stack.peek()
+    #Checks if the stack is empty
     stack.isEmpty()
+    #Checks if the stack contains
+    stack.contains('Name')
 
     stack1 = Stack()
     stack1.pop()
