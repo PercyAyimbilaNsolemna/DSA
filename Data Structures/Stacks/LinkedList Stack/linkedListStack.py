@@ -42,8 +42,8 @@ class Stack:
     def pop(self):
         #Checks if the stack is not empty
         if self._size == 0:
-            print('The stack is EMPTY!')
-            return
+            raise Exception('The stack is EMPTY')
+        
         #Sets the head of the stack to the ref of the current stack
         self._head = self._head._ref
 
