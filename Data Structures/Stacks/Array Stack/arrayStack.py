@@ -51,9 +51,9 @@ class Stack:
     def peek(self):
         #Checks if the stack is empty
         if self._size == 0:
-            print('The stack is empty')
+            #Throws an error if the stack is empty
+            raise Exception('Stack is EMPTY')
 
-            return 
         
         #Prints the last element in the stack
         print(self._stack[self._size - 1])

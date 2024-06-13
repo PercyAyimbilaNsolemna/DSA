@@ -56,8 +56,9 @@ class Stack:
     def peek(self):
         #Checks if the stack is empty
         if self._size == 0:
-            print('The stack is EMPTY!')
-            return 
+            #Throws an exception if the stack is empty
+            raise Exception('Satck is EMPTY')
+        
         print(self._head._data)
 
     #Creates a method that checks if the stack is empty
