@@ -61,7 +61,18 @@ class Queue():
         
         #Removes the first element from the queue by setting the head to the ref of the current head
         self._head = self._head._ref
+        #Decreses the number of elements in the queue by one
         self._size -= 1
+
+    #Creates a method that checks the size of the queue
+    def size(self):
+        if self._size == 0:
+            print('The queue is EMPTY!')
+            return
+        
+        print(self._size)
+        return
+
 
     #Creates a traverse method that loops through the queue and outputs each node in the queue
     def traverse(self):
@@ -88,7 +99,7 @@ def main():
     queue.enqueue(5)
     queue.enqueue(6)
     queue.enqueue(7)
-    #print(queue.size)
+    queue.size()
     queue.traverse()
     queue.dequeue()
     queue.traverse()
