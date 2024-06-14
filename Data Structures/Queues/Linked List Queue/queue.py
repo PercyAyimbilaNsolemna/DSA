@@ -52,6 +52,16 @@ class Queue():
         #Increment the size of the queue by 1
         self.size += 1
         return
+    
+    #Creates a method that removes the first item from the queue
+    def dequeue(self):
+        #Checks if the queue is empty
+        if self.size == 0:
+            raise Exception('The queue is EMPTY!')
+        
+        #Removes the first element from the queue by setting the head to the ref of the current head
+        self.head = self.head.ref
+        self.size -= 1
 
     #Creates a traverse method that loops through the queue and outputs each node in the queue
     def traverse(self):
@@ -79,6 +89,8 @@ def main():
     queue.enqueue(6)
     queue.enqueue(7)
     print(queue.size)
+    queue.traverse()
+    queue.dequeue()
     queue.traverse()
 
 
