@@ -124,7 +124,10 @@ class MyCircularQueue(object):
                 self.head += 1
                 self.size -= 1
                 return True
+        #Checks if the tail is the same as the head
         elif self.tail == self.head:
+            if self.head == 0 and self.tail == 0:
+                return False
             self.queue[self.head-1] = None
             self.head = 0
             self.size = 0
@@ -175,7 +178,9 @@ class MyCircularQueue(object):
 def main():
     myCircularQueue = MyCircularQueue(3)
 
+    print(myCircularQueue.deQueue())
     
+    '''
     print(myCircularQueue.enQueue(1)) # return True
     print(myCircularQueue.enQueue(2))  #return True
     print(myCircularQueue.enQueue(3))  #return True
@@ -188,7 +193,7 @@ def main():
     print(myCircularQueue.enQueue(4)) #return True
     print(myCircularQueue.printQueue())
     print(myCircularQueue.Rear())     #return 4
-
+    '''
 
 if __name__ == '__main__':
     main()
