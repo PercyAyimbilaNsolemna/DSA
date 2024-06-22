@@ -84,9 +84,9 @@ class MyCircularQueue(object):
             #Checks if the next position to add the element is the same as the head then it returns  False
             if self.tail+1 == self.head:
                 return False
-            if self.queue[self.tail+1] is not None:
+            if self.queue[self.tail] is not None:
                 return False
-            self.queue[self.tail+1] = value
+            self.queue[self.tail] = value
             self.tail += 1
             self.size += 1
             return True
@@ -159,7 +159,7 @@ class MyCircularQueue(object):
         :rtype: bool
         """
         #Returns true if the head is zero
-        if self.head != 0:
+        if self.head == 0:
             return True
         #Returns False if the head is not zero
         return False
@@ -176,10 +176,42 @@ class MyCircularQueue(object):
         return self.queue
         
 def main():
-    myCircularQueue = MyCircularQueue(3)
+    myCircularQueue = MyCircularQueue(5)
+
+    print(myCircularQueue.enQueue(2))
+    print(myCircularQueue.enQueue(13))
+    print(myCircularQueue.enQueue(8))
+    print(myCircularQueue.enQueue(10))
+    print(myCircularQueue.enQueue(5))
+    print(myCircularQueue.enQueue(1))
+    print(myCircularQueue.printQueue())
 
     print(myCircularQueue.deQueue())
+    print(myCircularQueue.deQueue())
+    print(myCircularQueue.printQueue())
+
+    print(myCircularQueue.enQueue(23))
+    print(myCircularQueue.enQueue(6))
+    print(myCircularQueue.printQueue())
+    print(myCircularQueue.Front())
+    print(myCircularQueue.Rear())
+
+    print(myCircularQueue.deQueue())
+    print(myCircularQueue.deQueue())
+    print(myCircularQueue.deQueue())
+    print(myCircularQueue.deQueue())
+    print(myCircularQueue.printQueue())
+    print(myCircularQueue.Front())
+    print(myCircularQueue.Rear())
+
+    print(myCircularQueue.deQueue())
+    print(myCircularQueue.printQueue())
+    print(myCircularQueue.Front())
+    print(myCircularQueue.Rear())
+
+    print(myCircularQueue.isEmpty())
     
+
     '''
     print(myCircularQueue.enQueue(1)) # return True
     print(myCircularQueue.enQueue(2))  #return True
