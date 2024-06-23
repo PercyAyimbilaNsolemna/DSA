@@ -49,7 +49,8 @@ class MyCircularQueue(object):
         #Sets the tail of the queue to zero
         self.tail = 0
         #Sets the list
-        self.queue = []
+        self.queue = [None for x in range(self.queue_max_size)]
+        
         
 
     def enQueue(self, value):
@@ -59,7 +60,7 @@ class MyCircularQueue(object):
         """
         if self.size == 0:
             #Adds the value to the end of the queue
-            self.queue.append(value)
+            self.queue[0] = value
             #Adds one to the tail of the queue
             self.tail += 1
             #Adds one to the tail of the queue
@@ -93,7 +94,7 @@ class MyCircularQueue(object):
         
         else:
             #Adds the value to the queue
-            self.queue.append(value)
+            self.queue[self.tail] = value
             #Adds one to the tail
             self.tail += 1
             self.size += 1
@@ -144,6 +145,10 @@ class MyCircularQueue(object):
         """
         :rtype: int
         """
+        #Returns -1 if the head is 0 or None
+        if self.head == 0:
+            return -1
+        
         #Subtracts 1 from the head because indexing starts from zero
         return self.queue[self.head-1]
 
@@ -151,7 +156,11 @@ class MyCircularQueue(object):
         """
         :rtype: int
         """
-        #Subtracts 1 from the tail beacuse indexing starts from zero
+        #Returns -1 if the tail is 0 or None
+        if self.tail == 0:
+            return -1
+        
+        #Subtracts 1 from the tail beacuse indexing starts from zero 
         return self.queue[self.tail-1]
 
     def isEmpty(self):
@@ -176,7 +185,21 @@ class MyCircularQueue(object):
         return self.queue
         
 def main():
-    myCircularQueue = MyCircularQueue(5)
+    myCircularQueue = MyCircularQueue(6)
+
+    print(myCircularQueue.enQueue(6))
+    print(myCircularQueue.Rear())
+    print(myCircularQueue.Rear())
+    print(myCircularQueue.deQueue())
+    print(myCircularQueue.enQueue(5))
+    print(myCircularQueue.Rear())
+    print(myCircularQueue.deQueue())
+    print(myCircularQueue.Front())
+    print(myCircularQueue.Rear())
+    print(myCircularQueue.tail)
+    print(myCircularQueue.head)
+    '''
+    print(myCircularQueue.printQueue())
 
     print(myCircularQueue.enQueue(2))
     print(myCircularQueue.enQueue(13))
@@ -211,6 +234,7 @@ def main():
 
     print(myCircularQueue.isEmpty())
     
+    '''
 
     '''
     print(myCircularQueue.enQueue(1)) # return True
