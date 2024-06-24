@@ -198,9 +198,10 @@ def main():
     print(myCircularQueue.Rear())
     print(myCircularQueue.tail)
     print(myCircularQueue.head)
-    '''
+
     print(myCircularQueue.printQueue())
 
+    '''
     print(myCircularQueue.enQueue(2))
     print(myCircularQueue.enQueue(13))
     print(myCircularQueue.enQueue(8))
