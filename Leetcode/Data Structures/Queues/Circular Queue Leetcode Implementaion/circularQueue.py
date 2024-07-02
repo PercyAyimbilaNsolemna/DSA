@@ -33,6 +33,10 @@
     0 <= value <= 1000
     At most 3000 calls will be made to enQueue, deQueue, Front, Rear, isEmpty, and isFull
 
+    Implement an improved version of the previous implementation
+
+    Remove the explicit for loop when initializing the queue, for the code to run faster
+
 '''
 
 class MyCircularQueue(object):
