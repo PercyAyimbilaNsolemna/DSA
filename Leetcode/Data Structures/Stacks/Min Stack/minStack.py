@@ -43,36 +43,63 @@
 class MinStack(object):
 
     def __init__(self):
-        ...
+        #Creates an empty list as the stack
+        self.stack = []
+        #Stack to hold the sorted elements in the main stack
+        self.min = []
 
     def push(self, val):
         """
         :type val: int
         :rtype: None
         """
+        #Adds the val to the end of the stack
+        self.stack.append(val)
+        #Adds the val to the min stack and sorts the elements in a reverse order
+        self.min.append(val)
+        self.min.sort(reverse=True)
+        return 
         
 
     def pop(self):
         """
         :rtype: None
         """
-        
+        #Removes the last element from the stack
+        popped_value = self.stack.pop()
+        #Removes the popped value from the min stack
+        self.min.remove(popped_value)
+        #Deletes the popped_value from memory
+        del popped_value 
+        return 
 
     def top(self):
         """
         :rtype: int
         """
+        if len(self.stack) != 0:
+            return self.stack[-1]
+        
+        return None
         
 
     def getMin(self):
         """
         :rtype: int
         """
+        #Returns the last element in the min stack
+        return self.min[-1]
         
 
 def main():
-    ...
-
+    minStack = MinStack()
+    print(minStack.push(-2))
+    print(minStack.push(0))
+    print(minStack.push(-3))
+    print(minStack.getMin())
+    print(minStack.pop())
+    print(minStack.min)
+    print(minStack.getMin())
 
 if __name__ == '__main__':
     main()
