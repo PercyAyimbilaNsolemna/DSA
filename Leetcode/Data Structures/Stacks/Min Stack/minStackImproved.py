@@ -43,32 +43,62 @@
 class MinStack(object):
 
     def __init__(self):
-        ...
+        #Sets the stack to an empty array
+        self.stack = []
+        #Sets the min value to an int
+        self.min = int
 
     def push(self, val):
         """
         :type val: int
         :rtype: None
         """
-        
+        #Checks if the stack is empty
+        if len(self.stack) == 0:
+            self.min = val
+        else:
+            #Checks if the value is less than the current minimum value 
+            if val < self.min:
+                self.min = val
+        #Adds the value to the end of the stack
+        self.stack.append(val)
+        return
 
     def pop(self):
         """
         :rtype: None
         """
+        #Removes the last element from the stack
+        popped_value = self.stack.pop()
 
+        #Checks if the popped_value is the same as the min value
+        if self.min == popped_value:
+            #Checks if the stack is not empty
+            if len(self.stack) != 0:
+                #Updates the min value to be the min of the elements in the stack
+                self.min = min(self.stack)
+            else:
+                #Sets the min value to an int if the stack is empty
+                self.min = int
+
+        return 
 
     def top(self):
         """
         :rtype: int
         """
+        #Checsk if the stack is not empty
+        if len(self.stack) != 0:
+            return self.stack[-1]
         
+        return None
 
     def getMin(self):
         """
         :rtype: int
         """
-        
+        #Returns the min value
+        return self.min
 
 def main():
     minStack = MinStack()
@@ -77,7 +107,6 @@ def main():
     print(minStack.push(-3))
     print(minStack.getMin())
     print(minStack.pop())
-    print(minStack.min)
     print(minStack.getMin())
 
 if __name__ == '__main__':
