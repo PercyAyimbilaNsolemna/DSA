@@ -25,6 +25,8 @@
     1 <= temperatures.length <= 105
     30 <= temperatures[i] <= 100
 
+    TO BE OPTIMIZED
+
 '''
 
 class Solution(object):
@@ -33,10 +35,33 @@ class Solution(object):
         :type temperatures: List[int]
         :rtype: List[int]
         """
+        #Creates an array to store the number of days to wait to get a warmer temperature
+        ans = []
+
+        #Stack to keep track of the temperatures
+        stack = []
+
+        for temp in temperatures:
+            #Appends the temp to tyhe stack if the stack is empty
+            if not stack:
+                stack.append(temp)
+            else:
+                if temp > stack[-1]:
+                    ans.append(len(stack))
+                    stack.clear()
+                    stack.append(temp)
+                else:
+                    stack.append(temp)
+                    stack[-1], stack[-2] = stack[-2], stack[-1]
+
+            print(stack)
+
+        return ans
 
 
 def main():
-    ...
+    solution = Solution()
+    print(solution.dailyTemperatures([30,40,50,60]))
 
 
 
