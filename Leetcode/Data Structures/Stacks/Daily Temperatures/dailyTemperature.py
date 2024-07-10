@@ -25,8 +25,11 @@
     1 <= temperatures.length <= 105
     30 <= temperatures[i] <= 100
 
-    TO BE OPTIMIZED
+        You are here!
+    Your runtime beats 85.69 % of python submissions.
 
+        You are here!
+    Your memory usage beats 91.39 % of python submissions.
 '''
 
 class Solution(object):
@@ -36,25 +39,22 @@ class Solution(object):
         :rtype: List[int]
         """
         #Creates an array to store the number of days to wait to get a warmer temperature
-        ans = []
+        ans = [0] * len(temperatures)
 
         #Stack to keep track of the temperatures
         stack = []
 
-        for temp in temperatures:
-            #Appends the temp to tyhe stack if the stack is empty
-            if not stack:
-                stack.append(temp)
-            else:
-                if temp > stack[-1]:
-                    ans.append(len(stack))
-                    stack.clear()
-                    stack.append(temp)
-                else:
-                    stack.append(temp)
-                    stack[-1], stack[-2] = stack[-2], stack[-1]
-
-            print(stack)
+        #Loops through the temperatures
+        for index, temp in enumerate(temperatures):
+            #Checks if the stack is not and empty and the temp is greater than the temp at the peek of the stack
+            while stack and temp > temperatures[stack[-1]]:
+                #Removes the index of the top remp from the stack
+                popped_index = stack.pop()
+                #Calculates the difference between the index of the current temp and the index of the temp popped from the stack
+                ans[popped_index] = index - popped_index
+ 
+            #If the stack is empty or the current temp is less than the temp at the top of the stack the index of the pushed to the stack
+            stack.append(index)
 
         return ans
 
@@ -63,7 +63,9 @@ def main():
     solution = Solution()
     print(solution.dailyTemperatures([30,40,50,60]))
 
+    print(solution.dailyTemperatures([30,60,90]))
 
+    print(solution.dailyTemperatures([73,74,75,71,69,72,76,73]))
 
 if __name__ == '__main__':
     main()
