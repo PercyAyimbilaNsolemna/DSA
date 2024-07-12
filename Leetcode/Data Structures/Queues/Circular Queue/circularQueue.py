@@ -49,7 +49,8 @@ class MyCircularQueue(object):
         #Sets the tail of the queue to zero
         self.tail = 0
         #Sets the list
-        self.queue = [None for x in range(self.queue_max_size)]
+        #self.queue = [None for x in range(self.queue_max_size)]
+        self.queue = [None] * self.queue_max_size
         
         
 
