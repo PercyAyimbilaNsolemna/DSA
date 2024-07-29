@@ -28,7 +28,8 @@ class Heap:
         self.capacity = capacity
         #Sets the size of the heap to zero since it has no element yet
         self.size = 0
-        
+
+    #Returns the array when  the instantiated object is passed to the print function. Retruns the array as a string  
     def __str__(self):
         return str(self.storage)
     
@@ -172,9 +173,11 @@ class Heap:
                 #Swaps the elements if it does
                 self.swap(index, smaller_child_index)
 
-            #Sets the index to the index of the samller child index to maintain the order in that node
-            index = smaller_child_index
+                #Sets the index to the index of the smaller child index to maintain the order in that node
+                index = smaller_child_index
 
+            else:
+                break
     #Defines a method that removes and returns the min value (root) in the heap
     #Recursion
     def remove_min_recursive(self):
