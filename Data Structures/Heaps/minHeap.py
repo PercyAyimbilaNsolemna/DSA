@@ -178,6 +178,7 @@ class Heap:
 
             else:
                 break
+
     #Defines a method that removes and returns the min value (root) in the heap
     #Recursion
     def remove_min_recursive(self):
@@ -225,7 +226,17 @@ class Heap:
             #Calls the heap_down_recursive function recursively
             self.heap_down_recursive(smallest)
 
+    #Defines a method that clears the entire heap
+    def clear(self):
+        #Sets the storage array to an empty array
+        self.storage = []
 
+        #Sets the size of the heap to zero
+        self.size = 0
+
+        return 
+
+    
 def main():
     heap = Heap(5)
 
@@ -252,6 +263,10 @@ def main():
     print(heap)
 
     print(f'The min value in the heap is {heap.remove_min()}')
+
+    print(heap)
+
+    heap.clear()
 
     print(heap)
 
