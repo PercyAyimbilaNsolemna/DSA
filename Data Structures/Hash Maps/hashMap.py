@@ -14,6 +14,13 @@
 
     The string index is converted to the corresponding array index which is then used to get the value in the array 
 
+    IMPROVEMENTS
+    Modify how data is inserted into the hash map currently the implementation is not handling collisions
+
+    Add a method that returns all the keys in the hash map
+
+    Adds a method that returns all the items in the hash map (The display method prints out all the items)
+
     computeHash(value): Computes and returns a key for  a given value. The ascii algorithm will be used to generate the key
                         The ascii algorithm will be used
                         The sum of all the chars in the key will be taken then a mod total number of items in the array
@@ -34,7 +41,7 @@
 #Creates  the Hash Table class
 class HashTable:
     #Defines an initialization method
-    def __init__(self, max_size=100):
+    def __init__(self, max_size=2):
         #Sets the maximum size of the hash table to the max_size passed
         self.max_size = max_size
 
@@ -116,21 +123,37 @@ class HashTable:
 def main():
     hashTable = HashTable()
 
+    print(hashTable.array)
+
     hashTable.insert('march 6', 'Cat')
 
-    print(hashTable.get('march 6'))
+    print(hashTable.array)
 
-    print(hashTable.getIndex('march 6'))
+    hashTable.insert('march 7', 'Dog')
 
-    hashTable['march 10'] = 'Enjoyment!'
+    print(hashTable.array)
 
-    print(hashTable['march 10'])
+    hashTable.insert('march 8', 'Mouse')
 
-    hashTable['march 11'] = 'Money Finish'
+    print(hashTable.array)
 
-    del hashTable['march 11']
+    hashTable.insert('march 9', 'Cow')
+
+    print(hashTable.array)
+
+    # print(hashTable.get('march 6'))
+
+    # print(hashTable.getIndex('march 6'))
+
+    # hashTable['march 10'] = 'Enjoyment!'
+
+    # print(hashTable['march 10'])
+
+    # hashTable['march 11'] = 'Money Finish'
+
+    # del hashTable['march 11']
  
-    hashTable.display()
+    # hashTable.display()
 
 if __name__ == '__main__':
     main()
