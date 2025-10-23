@@ -16,6 +16,8 @@
 
     s consists only of printable ASCII characters.
 
+    Time Complexit: O(n)
+    Space Complexity: O(n)
 '''
 
 def is_palindrome(s):
