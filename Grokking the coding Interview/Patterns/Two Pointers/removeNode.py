@@ -22,13 +22,12 @@
     Space Complexity: O(1)
 '''
 
-#Definition for a Linked List node
+# Definition for a Linked List node
 class ListNode:
     def __init__(self, val=0, next=None):
         self.val = val
         self.next = next
-
-#Might 
+        
 #from ds_v1.LinkedList.LinkedList import ListNode
 
 def remove_nth_last_node(head, n):
@@ -41,17 +40,17 @@ def remove_nth_last_node(head, n):
     firstPointer = dummy
     secondPointer = dummy
     
-    #Moves the secondPointer n steps ahead of the firstPointer
+    #Moves the firstPointer n steps ahead of the secondPointer
     for _ in range(n):
-        secondPointer = secondPointer.next
+        firstPointer = firstPointer.next
         
-    #Moves the firstPointer and secondPointer until the secondPointer hits the last node
-    while secondPointer.next != None:
+    #Moves the firstPointer and secondPointer until the firstPointer hits the last node
+    while firstPointer.next != None:
         firstPointer = firstPointer.next
         secondPointer = secondPointer.next
         
-    #Changes the current pointer of the firstPointer to the next two addresses 
-    firstPointer.next = firstPointer.next.next
+    #Changes the current pointer of the secondPointer to the next two addresses 
+    secondPointer.next = secondPointer.next.next
     
     #Eliminates the dummy and return the actual head of the linked list
     return dummy.next
