@@ -32,8 +32,26 @@
     Space Complexity: O(n)
 
 '''
-
 def sort_colors(colors):
+    #Declares and initializes the left, right and middle pointers
+    left, middle, right = 0, 0, len(colors) - 1
+
+    while middle <= right:
+        if colors[middle] == 0:
+            colors[middle], colors[left] = colors[left], colors[middle]
+            middle += 1
+            left += 1
+
+        elif colors[middle] == 1:
+            middle += 1
+
+        elif colors[middle] == 2:
+            colors[right], colors[middle] = colors[middle], colors[right]
+            right -= 1
+
+    return colors
+
+def sort_colors_old(colors):
     #Declares left and right pointers
     left, middle, right = 0, 0, len(colors) - 1
 
