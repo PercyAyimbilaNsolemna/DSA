@@ -31,33 +31,48 @@
 
 def reverse_words(sentence):
     
+    #Declares and initializes the startCounter which starts a word count
     startCounter = 0
 
+    #Gets the length of the sentence
     sentenceLength = len(sentence)
 
+    #Initialize an empty string to hold the reversed sentence
     result = ''
 
+    #Loops through the sentence if the startCounter is less than the length of the sentence
     while startCounter < sentenceLength:
+        
+        #Ignores all whitespaces before a word
         while ((startCounter < sentenceLength) and  (sentence[startCounter] == ' ')):
             startCounter += 1
 
+        #Breaks out of the while loop if the startCounter hits the end of the sentence
         if startCounter >= sentenceLength:
             break
-
+        
+        #Initialize the word endCounter to one ahead of the startCounter after the startCounter hits the start of a word
         endCounter = startCounter + 1
 
+        #Ends the counting of a word when a space is seen
         while((endCounter < sentenceLength) and (sentence[endCounter] != ' ')):
             endCounter += 1
 
+        #Extracts the word from the sentence using python list comprehension
         word = sentence[startCounter : endCounter]
 
+        #Checks if the reult is an empty string then set the word to the result, if not add the word to the begining 
+        #of the result and add a space 
         if result == '':
             result = word
         else:
             result = word + ' ' + result
 
+        #Set the startCounter to the endCounter and add one since we want to start from the next character after the
+        #previous word
         startCounter = endCounter + 1
-
+        
+    #Return the result
     return result
 
 def main():
