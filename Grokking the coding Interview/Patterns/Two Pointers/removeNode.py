@@ -30,6 +30,7 @@ class ListNode:
         
 #from ds_v1.LinkedList.LinkedList import ListNode
 
+#Defines the remove nth last node function
 def remove_nth_last_node(head, n):
     #Creates a dummy node to fix incorrect indexes
     dummy = ListNode(val=0)
