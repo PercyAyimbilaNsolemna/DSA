@@ -39,6 +39,7 @@ def remove_nth_last_node(head, n):
     
     #Initialize the first and second pointers and initialze them to the head
     firstPointer = dummy
+    #Check
     secondPointer = dummy
     
     #Moves the firstPointer n steps ahead of the secondPointer
