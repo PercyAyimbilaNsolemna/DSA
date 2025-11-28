@@ -83,10 +83,10 @@ class Shedlock:
                 leftCounter += 1
             else:
                 print(f"------- {s[leftPointer]} : {leftCounter} --------\n")
-                if leftCounter != validCount:
-                    return False
-                else:
+                if leftCounter - 1 == 0 or leftCounter - 1 == validCount or leftCounter == validCount:
                     leftCounter = 1
+                else:
+                    return False
 
             #Condition that counts the same var on the right and checks if it is the same as the 
             #valid count
@@ -94,10 +94,10 @@ class Shedlock:
                 rightCounter += 1
             else:
                 print(f"------- {s[rightPointer]} : {rightCounter} --------\n")
-                if rightCounter != validCount:
-                    return False
+                if rightCounter - 1 == 0 or rightCounter - 1 == validCount or rightCounter == validCount:
+                    rightCounter = 1 
                 else:  
-                    rightCounter = 1
+                    return False
 
             leftPointer += 1
             rightPointer -= 1
@@ -108,7 +108,7 @@ class Shedlock:
 
 def main():
     shedlock = Shedlock()
-    print(shedlock.isValid("Percy"))
+    print(shedlock.isValid("abccc"))
 
 
 if __name__ == "__main__":
